@@ -1,15 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { DatePicker, Slider } from 'antd';
 
+export default class App extends React.Component{
+    render(){
+        return (
+            <div>
+                <div> Hi </div>
+                <DatePicker />
+                <Slider defaultValue={30} />
 
-function App() {
-    return (
-        <div className="site-wrapper">
-            <h1>Test</h1>
-        </div>
-    );
+            </div>
+        )
+    }
 }
-
-export default App;
-
-

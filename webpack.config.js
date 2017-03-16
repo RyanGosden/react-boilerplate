@@ -23,6 +23,8 @@ module.exports = {
               ['es2015', {modules: false}],
               'react',
             ],
+            plugins: [["import", {"libraryName" : "antd"}]]
+
           }
         }
       }
