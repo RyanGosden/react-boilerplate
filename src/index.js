@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-export default class x extends React.Component {
+class x extends React.Component {
 
     render(){
         return(
             <div>
-                Hi
+                "Hello"
             </div>
         );
     }
@@ -14,4 +14,7 @@ export default class x extends React.Component {
 }
 
 
-reactDOM.render(<x/>, document.getElementById('root'));
+ReactDOM.render(
+    <x />,
+    document.getElementById('root')
+);

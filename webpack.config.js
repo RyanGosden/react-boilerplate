@@ -2,6 +2,8 @@
     ./webpack.config.js
 */
 const path = require('path');
+const webpack = require('webpack');
+
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -9,9 +11,11 @@ module.exports = {
     filename: 'index_bundle.js'
   },
   module: {
-    loaders: [
-      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
-      { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ }
-    ]
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: [/ node_modules/],
+        use: ['babel-loader'],
+      }]
   }
-}
+};
