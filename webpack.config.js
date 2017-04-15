@@ -3,6 +3,7 @@
 */
 const path = require('path');
 const webpack = require('webpack');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   entry: './src/index.jsx',
@@ -15,19 +16,31 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: [/ node_modules/],
-        use: {
-          loader: 'babel',
-          options: {
-            babelrc: false,
-            presets: [
-              ['es2015', {modules: false}],
-              'react',
-            ],
-            plugins: [["import", {"libraryName" : "antd"}]]
+        loader: 'babel-loader',
+        // query: {
+        //   presets: ['es2015', 'react']
+        // }
+  },
+        { //CSS loader
+             test: /\.css$/,
+             use: ExtractTextPlugin.extract({use: ["css-loader"]})
+         },
+         { //JPG loader
+             test: /\.jpg$/, use: "url-loader?limit=13000"
+         },
+         { //PNG loader
+             test: /\.png$/, use: "url-loader?limit=13000"
+         },
+         { //GIF loader
+             test: /\.gif$/, use: "url-loader?limit=13000"
+         },
+         { //Font loader
+             test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/, use: "file-loader"
+         }]
+       },
 
-          }
-        }
-      }
-    ]
-  }
+         plugins: [
+           new ExtractTextPlugin('main.css')
+         ]
+
 };
