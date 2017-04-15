@@ -23240,4 +23240,9 @@ span.ant-transfer-list-search-action {
   }
 }
 
-/*# sourceMappingURL=antd.css.map*/
+/*# sourceMappingURL=antd.css.map*/.test-component {
+  width:300px;
+  height:300px;
+  margin :0 auto;
+  background-color: green;
+}
